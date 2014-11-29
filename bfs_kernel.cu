@@ -28,7 +28,6 @@ bfs_kernel(Node* d_graph_nodes, int* d_edge_list, bool* d_graph_level,
     //is being visited
     if (tid < no_of_nodes && d_graph_level[tid]) {
         d_graph_level[tid] = false;
-        d_graph_visited[tid] = true;
         for (int i = d_graph_nodes[tid].starting; i <
                 (d_graph_nodes[tid].no_of_edges +
                  d_graph_nodes[tid].starting); i++) {
@@ -37,6 +36,7 @@ bfs_kernel(Node* d_graph_nodes, int* d_edge_list, bool* d_graph_level,
                 //calculate in which level the vertex is visited
                 d_cost[id] = d_cost[tid] + 1;
                 d_graph_level[id] = true;
+                d_graph_visited[id] = true;
                 //to make the loop continues
                 *loop = true;
             }

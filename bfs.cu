@@ -86,6 +86,7 @@ void bfsGraph(char* filename, int start_position) {
         h_graph_visited[i] = false;
     }
     h_graph_level[start_position] = true;
+    h_graph_visited[start_position] = true;
 
     //Copy node list to cuda memory
     Node* d_graph_nodes;
